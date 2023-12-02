@@ -8,27 +8,30 @@ namespace OliviasTopTunes
 {
     internal class Songs
     {
+        private List<Songs> ListOfSongs = new List<Songs>();
+
         public string Band { get; set; }
         public string Song { get; set; }
-      
 
-        
-        public void SongInfo(string band, string song)
+        public Songs(string band, string song)
         {
             Band = band;
             Song = song;
         }
 
-        public AddSongs(string band, string song)
+        public void AddSong(string band, string song)
         {
-            var ListOfSongs = new List<SongInfo>();
+            ListOfSongs.Add(new Songs(band, song));
+            Console.WriteLine("Sangen er lagt til.");
+            Console.WriteLine();
         }
 
-        public void DisplaySongInfo(string band, string song)
+        public void DisplaySongInfo()
         {
-            for (var i = 0; i < Band.Length; i++) { }
+            foreach (var song in ListOfSongs)
             {
-                Console.WriteLine($"{song} av {band}");
+                Console.WriteLine($"    *   {song.Song} av {song.Band}");
+                Console.WriteLine();
             }
         }
     }

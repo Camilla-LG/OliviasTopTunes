@@ -31,8 +31,8 @@ namespace OliviasTopTunes
             foreach (var song in ListOfSongs)
             {
                 Console.WriteLine($"    *   {song.Song} av {song.Band}");
-                Console.WriteLine();
             }
+            Console.WriteLine();
         }
     }
 }

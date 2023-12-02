@@ -5,6 +5,7 @@ using OliviasTopTunes;
 class Program
 {
     private Songs songsInstance;
+    bool RunProgram = true;
 
     public Program()
     {
@@ -13,7 +14,7 @@ class Program
 
     public void MainMenu()
     {
-        while (true) {
+        while (RunProgram == true) {
             Console.WriteLine();
             Console.WriteLine("Velkommen til Olivias favoritter!");
             Console.WriteLine("---------------------------------");
@@ -23,6 +24,7 @@ class Program
             Console.WriteLine("1. Vis sanger.");
             Console.WriteLine("2. Legg til ny sang.");
             Console.WriteLine("3. Slett sang.");
+            Console.WriteLine("4. Exit program.");
             Console.WriteLine();
 
             var userChoice = Console.ReadKey().KeyChar;
@@ -38,6 +40,10 @@ class Program
                     break;
                 case '3':
                     DeleteSong();
+                    break;
+                case '4':
+                    Console.WriteLine("Bye Bye.");
+                    RunProgram = false;
                     break;
                 default:
                     break;

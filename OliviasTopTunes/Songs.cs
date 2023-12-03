@@ -12,6 +12,7 @@ namespace OliviasTopTunes
 
         public string Band { get; set; }
         public string Song { get; set; }
+        string DoublecheckSong = "";
 
         public Songs(string band, string song)
         {
@@ -34,5 +35,35 @@ namespace OliviasTopTunes
             }
             Console.WriteLine();
         }
+        public void DeleteSong()
+        {
+            DisplaySongInfo();
+            Console.WriteLine();
+            Console.WriteLine("Hvilken av disse sangene vil du slette? Skriv inn navnet på sangen.");
+            var songToDelete = Console.ReadLine();
+
+            var songToRemove = ListOfSongs.FirstOrDefault(s => s.Song.Equals(songToDelete, StringComparison.OrdinalIgnoreCase));
+
+            if (songToRemove != null)
+            {
+                Console.WriteLine($"Vil du slette {songToRemove.Song} av {songToRemove.Band}? J/N");
+                var doubleCheckSong = Console.ReadLine();
+
+                if (doubleCheckSong.ToLower() == "j")
+                {
+                    ListOfSongs.Remove(songToRemove);
+                    Console.WriteLine($"{songToRemove.Song} av {songToRemove.Band} er nå fjernet fra listen.");
+                }
+                else
+                {
+                    Console.WriteLine("Sletting avbrutt.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Finner ikke sangen i listen.");
+            }
+        }
     }
 }
+

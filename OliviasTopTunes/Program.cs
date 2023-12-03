@@ -39,7 +39,7 @@ class Program
                     AddSong();
                     break;
                 case '3':
-                    DeleteSong();
+                    songsInstance.DeleteSong();
                     break;
                 case '4':
                     Console.WriteLine("Bye Bye.");
@@ -59,11 +59,6 @@ class Program
         string song = Console.ReadLine();
 
         songsInstance.AddSong(band, song);
-    }
-
-    public void DeleteSong()
-    {
-        // Legg til logikk for å slette en sang
     }
 
     static void Main()
